@@ -9,6 +9,26 @@
     --gris_oscuro: #ACADAD;
     --boton_gris: #57595B;
     --verde: #39B448;
+    /* tipos */
+    --tipo-normal: #A8A77A;
+    --tipo-fire: #EE8130;
+    --tipo-water: #6390F0;
+    --tipo-electric: #F7D02C;
+    --tipo-grass: #7AC74C;
+    --tipo-ice: #96D9D6;
+    --tipo-fighting: #C22E28;
+    --tipo-poison: #A33EA1;
+    --tipo-ground: #E2BF65;
+    --tipo-flying: #A98FF3;
+    --tipo-psychic: #F95587;
+    --tipo-bug: #A6B91A;
+    --tipo-rock: #B6A136;
+    --tipo-ghost: #735797;
+    --tipo-dragon: #6F35FC;
+    --tipo-dark: #705746;
+    --tipo-steel: #B7B7CE;
+    --tipo-fairy: #D685AD;
+
 }
 
 html {
@@ -40,7 +60,117 @@ body {
 
 }
 
+/* Tipos de Pokémon */
+.normal {
+    background-color: var(--tipo-normal);
+    color: var(--negro);
+    border-radius: 4px;
+}
 
+.fire {
+    background-color: var(--tipo-fire);
+    color: var(--blanco);
+    border-radius: 4px;
+}
+
+.water {
+    background-color: var(--tipo-water);
+    color: var(--blanco);
+    border-radius: 4px;
+}
+
+.electric {
+    background-color: var(--tipo-electric);
+    color: var(--negro);
+    border-radius: 4px;
+}
+
+.grass {
+    background-color: var(--tipo-grass);
+    color: var(--negro);
+    border-radius: 4px;
+}
+
+.ice {
+    background-color: var(--tipo-ice);
+    color: var(--negro);
+    border-radius: 4px;
+}
+
+.fighting {
+    background-color: var(--tipo-fighting);
+    color: var(--blanco);
+    border-radius: 4px;
+}
+
+.poison {
+    background-color: var(--tipo-poison);
+    color: var(--blanco);
+    border-radius: 4px;
+}
+
+.ground {
+    background-color: var(--tipo-ground);
+    color: var(--negro);
+    border-radius: 4px;
+}
+
+.flying {
+    background-color: var(--tipo-flying);
+    color: var(--blanco);
+    border-radius: 4px;
+}
+
+.psychic {
+    background-color: var(--tipo-psychic);
+    color: var(--blanco);
+    border-radius: 4px;
+}
+
+.bug {
+    background-color: var(--tipo-bug);
+    color: var(--negro);
+    border-radius: 4px;
+}
+
+.rock {
+    background-color: var(--tipo-rock);
+    color: var(--negro);
+    border-radius: 4px;
+}
+
+.ghost {
+    background-color: var(--tipo-ghost);
+    color: var(--blanco);
+    border-radius: 4px;
+}
+
+.dragon {
+    background-color: var(--tipo-dragon);
+    color: var(--blanco);
+    border-radius: 4px;
+}
+
+.dark {
+    background-color: var(--tipo-dark);
+    color: var(--blanco);
+    border-radius: 4px;
+}
+
+.steel {
+    background-color: var(--tipo-steel);
+    color: var(--negro);
+    border-radius: 4px;
+}
+
+.fairy {
+    background-color: var(--tipo-fairy);
+    color: var(--negro);
+    border-radius: 4px;
+}
+
+
+/* animaciones */
 @keyframes fadeIn {
     0% {
         opacity: 0;

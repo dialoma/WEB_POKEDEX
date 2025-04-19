@@ -38,7 +38,7 @@ function cargarPokemones() {
         <p class="self-start pb-2 pl-6 whitespace-nowrap">N.°${numero.toString().padStart(4, '0')}</p>
         <p class="self-start pb-2 pl-6 whitespace-nowrap text-xl font-bold">${data.name}</p>
         <div class="flex space-x-4">
-          ${data.types.map(t => `<p class="text-center">${t.type.name}</p>`).join("")}
+          ${data.types.map(t => `<p class="text-center ${t.type.name} pl-3 pr-3">${t.type.name}</p>`).join("")}
         </div>
       </div>
     `;
