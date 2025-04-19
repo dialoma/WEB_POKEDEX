@@ -2,35 +2,47 @@ const contenedorPokemones = document.querySelector("#contenedor-pokemones");
 let URL = "https://pokeapi.co/api/v2/pokemon/";
 let offset = 0;
 const limit = 12;
-
-function scrollToTop() {
-    window.scrollTo({
-      top: 0,
-      behavior: 'smooth' 
-    });
-  }
+const filtroTipo = document.querySelector("#filter-type");
+let pokemonesCargados = [];
 
 function cargarPokemones() {
     const promesas = [];
-  
-    for (let i = offset + 1; i <= offset + limit; i++) {
-      promesas.push(
-        fetch(URL + i).then(res => res.json()).then(data => ({ ...data, numero: i }))
-      );
-    }
-  
-    Promise.all(promesas).then(pokemones => {
-      pokemones
-        .sort((a, b) => a.numero - b.numero) // ordenar por número
-        .forEach(pokemon => mostrarPokemon(pokemon, pokemon.numero));
-    });
-  
-    offset += limit;
-  }
-  
-  cargarPokemones();
+    const spinner = document.getElementById("spinner");
+    spinner.classList.remove("hidden"); // mostrar el spinner
 
-  function mostrarPokemon(data, numero) {
+    const inicio = offset + 1;
+    const fin = offset + limit;
+
+    for (let i = inicio; i <= fin; i++) {
+        promesas.push(
+            fetch(URL + i)
+                .then(res => res.json())
+                .then(data => ({ ...data, numero: i }))
+        );
+    }
+
+    Promise.all(promesas).then(pokemones => {
+        pokemones.sort((a, b) => a.numero - b.numero);
+        pokemonesCargados.push(...pokemones);
+
+        const tipoSeleccionado = filtroTipo.value;
+        const aMostrar = tipoSeleccionado
+            ? pokemones.filter(pokemon =>
+                pokemon.types.some(t => t.type.name === tipoSeleccionado)
+            )
+            : pokemones;
+
+        aMostrar.forEach(pokemon => mostrarPokemon(pokemon, pokemon.numero));
+        spinner.classList.add("hidden"); // ocultar el spinner después de cargar
+    });
+
+    offset += limit;
+}
+
+  
+cargarPokemones();
+
+function mostrarPokemon(data, numero) {
     const div = document.createElement("div");
     div.innerHTML = `
       <div class="tarjeta card flex flex-col items-center">
@@ -43,11 +55,22 @@ function cargarPokemones() {
       </div>
     `;
     contenedorPokemones.append(div);
-  }
+}
 
-  setTimeout(() => {
-    contenedorPokemones.appendChild(div);
-  }, index * 100);
+filtroTipo.addEventListener("change", () => {
+    const tipoSeleccionado = filtroTipo.value;
+
+    // Limpiar el contenedor
+    contenedorPokemones.innerHTML = "";
+
+    // Filtrar y volver a mostrar
+    const filtrados = tipoSeleccionado
+        ? pokemonesCargados.filter(pokemon =>
+            pokemon.types.some(t => t.type.name === tipoSeleccionado))
+        : pokemonesCargados;
+
+    filtrados.forEach(pokemon => mostrarPokemon(pokemon, pokemon.numero));
+});
 
   
   

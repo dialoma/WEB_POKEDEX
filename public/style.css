@@ -57,7 +57,10 @@ body {
     background-color: var(--amarillo_brillante);
     color: var(--negro);
     border: 1px solid var(--negro);
+}
 
+.letra-filtro {
+    color: var(--blanco);
 }
 
 /* Tipos de Pokémon */
