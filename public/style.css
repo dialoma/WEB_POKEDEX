@@ -11,6 +11,10 @@
     --verde: #39B448;
 }
 
+html {
+    scroll-behavior: smooth;
+  }
+
 nav {
     width: 100%;
     border-bottom: 2px solid var(--negro);
@@ -21,19 +25,35 @@ body {
     background-color: var(--rojo_brillante);
 }
 
-/* .contenedor-tarjetas{
-    width: 75%;
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-} */
-
 .tarjeta {
     background-color: var(--blanco);
     border-radius: 10px;
     padding-bottom: 2rem;
     border: 5px solid var(--gris_oscuro);
     max-height: 315px;
+}
+
+.boton {
+    background-color: var(--amarillo_brillante);
+    color: var(--negro);
+    border: 1px solid var(--negro);
+
+}
+
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px); /* Desplazar ligeramente hacia abajo */
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0); /* Regresar a la posición original */
+    }
+}
+
+.card {
+    opacity: 0; /* Inicia con opacidad 0 */
+    animation: fadeIn 0.5s ease-in-out forwards; /* Aplicar animación de desvanecimiento */
 }
 
