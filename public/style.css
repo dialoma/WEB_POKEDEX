@@ -1,0 +1,39 @@
+:root{
+    --rojo_brillante: #D3252A;
+    --rojo_oscuro: #Af2b33;
+    --amarillo_brillante: #ffde00;
+    --amarillo_oscuro: #b3a125;
+    --blanco: #f2f3f3;
+    --negro: #201E1F;
+    --blanco_grisaceo_bordes: #BDBEBC;
+    --gris_oscuro: #ACADAD;
+    --boton_gris: #57595B;
+    --verde: #39B448;
+}
+
+nav {
+    width: 100%;
+    border-bottom: 2px solid var(--negro);
+    box-shadow: 4px 4px 10px var(--rojo_oscuro);
+}
+
+body {
+    background-color: var(--rojo_brillante);
+}
+
+/* .contenedor-tarjetas{
+    width: 75%;
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+} */
+
+.tarjeta {
+    background-color: var(--blanco);
+    border-radius: 10px;
+    padding-bottom: 2rem;
+    border: 5px solid var(--gris_oscuro);
+    max-height: 315px;
+}
+
