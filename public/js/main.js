@@ -10,7 +10,7 @@ const limit = 12;
 function showPokemons(pokemon, number) {
     const div = document.createElement("div");
     div.innerHTML = `
-      <div class="card card flex flex-col items-center">
+      <div class="card card flex flex-col items-center cursor-pointer" onclick="location.href='/pokemon/${pokemon.name}'">
         <img src="${pokemon.sprites.front_default}" alt="${pokemon.name}" class="w-45 h-auto">
         <p class="self-start pb-2 pl-6 whitespace-nowrap">N.°${number.toString().padStart(4, '0')}</p>
         <p class="self-start pb-2 pl-6 whitespace-nowrap text-xl font-bold">${pokemon.name}</p>
@@ -68,6 +68,7 @@ loadPokemons();
 filterType.addEventListener("change", () => {
     showAllPokemons();
 });
+
 
   
   
